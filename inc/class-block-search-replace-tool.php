@@ -117,7 +117,7 @@ class BlockSearchReplaceTool {
                 'class' => 'search'
             )
         );
-        if(false) {
+        if( !false ) {
         add_settings_section(
             'replace',
             __( 'WARNING: Do not use the replace function unless you have a backup of your content.', 
@@ -283,7 +283,8 @@ class BlockSearchReplaceTool {
             $wpdb->prepare(
                 "SELECT ID, post_type, post_name, post_title
                 FROM {$wpdb->posts} 
-                WHERE `post_content` LIKE %s",
+                WHERE `post_type` <> 'revision'
+                AND `post_content` LIKE %s",
                 '%' . $search_string . '%'
             )
         );
@@ -295,7 +296,8 @@ class BlockSearchReplaceTool {
         $results = $wpdb->get_results(
             $wpdb->prepare(
                 "UPDATE {$wpdb->posts} 
-                SET post_content = REPLACE( post_content, %s, %s)",
+                SET post_content = REPLACE( post_content, %s, %s)
+                WHERE `post_type` <> 'revision'",
                 $this->options['search_text'], 
                 $this->options['replace_text']
             )

@@ -11,10 +11,14 @@ Adds an admin page inside the tools menu option with the functionality to perfor
 
 == Description ==
 
-WIP for the moment the serh replace functionality works but for content with just one line so it has been hidden.
+WIP for the moment the serh replace functionality works but for content with just one line.
 Some @TODOs still to be finished
 
 == Changelog ==
+
+= 0.0.2 =
+* Remove revisions from search and replace
+* Activate replacement (just one line of content)
 
 = 0.0.1 =
 * Initial vesion released with search functionality over just one line content
