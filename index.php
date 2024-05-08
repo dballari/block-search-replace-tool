@@ -1,7 +1,7 @@
 <?php
 /**
  * @wordpress-plugin
- * Plugin Name: Block Search Replace
+ * Plugin Name: Block Search Replace Tool
  * Plugin URI: https://ballarinconsulting.com/acerca
  * Description: Adds an admin page inside the tools menu option with the functionality to perform search & replace actions over blocks that may be found in the content of a site.
  * Version: 0.0.1
