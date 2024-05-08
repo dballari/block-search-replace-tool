@@ -28,6 +28,7 @@ require_once 'inc/class-block-style-variation-finder.php';
 $plugin_uri = '';
 if ( is_admin() ) {
 
+
     /**
      * Get plugin data
      */
@@ -38,13 +39,14 @@ if ( is_admin() ) {
     $plugin_uri = $plugin_data['PluginURI'];
     $version = $plugin_data['Version'];
 
+
     /**
      * Enqueue a script in the WordPress admin on edit.php.
      * https://developer.wordpress.org/reference/hooks/admin_enqueue_scripts/
      *
      * @param string $hook Hook suffix for the current admin page.
      */
-    function blocksrtool_enqueue_admin_style( $hook ) {
+    add_action( 'admin_enqueue_scripts', function( $hook ) use ( $version ) {
         if ( $hook == 'tools_page_blocksrtool' || $hook == 'tools_page_blocksvfinder') {
             wp_enqueue_style( 'blocksrtool_style', plugin_dir_url( __FILE__ ) . 
             'assets/css/style.css', $version );
@@ -53,8 +55,7 @@ if ( is_admin() ) {
             wp_enqueue_script( 'blocksrtool_scripts', plugin_dir_url( __FILE__ ) . 
             'assets/js/scripts.js', [], $version );
         }
-    }
-    add_action( 'admin_enqueue_scripts', 'blocksrtool_enqueue_admin_style' );
+    });
 
 
     /**
@@ -63,4 +64,3 @@ if ( is_admin() ) {
     $blocksrtool = new BlockSearchReplaceTool( $plugin_uri );
     $blocksvfinder = new BlockStyleVariationFinder( $plugin_uri );
 }
-
