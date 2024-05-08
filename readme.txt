@@ -16,6 +16,9 @@ Some @TODOs still to be finished
 
 == Changelog ==
 
+= 0.0.3 =
+* Add max height and scroll y to content item
+
 = 0.0.2 =
 * Remove revisions from search and replace
 * Activate replacement (just one line of content)
