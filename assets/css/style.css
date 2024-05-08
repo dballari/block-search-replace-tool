@@ -1,0 +1,30 @@
+/* Block search replace tool styles
+------------------------------------ */
+.notice {
+    max-width:640px;
+}
+.form-table {
+    max-width: 100% !important;
+}
+table th {
+    text-align: left;
+}
+.content-wrap {
+    display: flex;
+    gap: 24px;
+    margin-top: 24px;
+}
+.helper-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+.content-item {
+    border: 1px solid;
+    border-radius: 4px;
+    padding: 16px;
+    width: 45%;
+}
+.normal-weight {
+    font-weight: 400;
+}
