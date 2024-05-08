@@ -16,6 +16,9 @@ Some @TODOs still to be finished
 
 == Changelog ==
 
+= 0.0.4 =
+* Add version of style & scripts from plugin data
+
 = 0.0.3 =
 * Add max height and scroll y to content item
 
