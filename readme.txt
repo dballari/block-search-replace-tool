@@ -4,8 +4,8 @@ Tags: site-editor, patterns, navigation, wp-admin, creator
 Requires at least: 6.5
 Stable tag: 0.5.0
 Requires PHP: 7.0
-License: GPLv2
-License URI: https://www.gnu.org/licenses/gpl-2.0.html
+License: GPLv3
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 Adds an admin page inside the tools menu option with the functionality to perform search & replace actions over blocks that may be found in the content of a site.
 
