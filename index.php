@@ -2,17 +2,32 @@
 /**
  * @wordpress-plugin
  * Plugin Name: Block Search Replace Tool
- * Plugin URI: https://ballarinconsulting.com/acerca
+ * Plugin URI: https://ballarinconsulting.com/plugins
  * Description: Adds an admin page inside the tools menu option with the functionality to perform search & replace actions over blocks that may be found in the content of a site.
- * Version: 0.0.4
- * Requires at least: 6.4
+ * Version: 0.9.4
+ * Requires at least: 6.5
  * Requires PHP: 7
  * Author: David Ballarin Prunera
- * Author URI: https://ballarinconsulting.com/acerca
- * License: GNU General Public License v3
- * License URI: http://www.gnu.org/licenses/gpl-3.0.html
+ * Author URI: https://ballarinconsulting.com/
+ * License: GNU General Public License v2
+ * License URI: http://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: blocksrtool
  */
+
+
+/*
+Block Search Replace Tool is free software: you can redistribute
+it and/or modify it under the terms of the GNU General Public 
+License as published by the Free Software Foundation, either 
+version 2 of the License, or any later version.
+
+Block Search Replace Tool is distributed in the hope that it will
+be useful, but WITHOUT ANY WARRANTY; without even the implied
+warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+See the GNU General Public License for more details here: 
+http://www.gnu.org/licenses/gpl-2.0.html
+*/
+
 
 /**
  * Require class files

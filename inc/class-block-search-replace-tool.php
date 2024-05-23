@@ -103,7 +103,7 @@ class BlockSearchReplaceTool {
         add_settings_section(
             'search',
             '',
-            array ( $this, 'render_search_section' ),
+            '', //array ( $this, 'render_search_section' ),
             'blocksrtool'
         );
         add_settings_field(
@@ -122,7 +122,7 @@ class BlockSearchReplaceTool {
             'replace',
             __( 'WARNING: Do not use the replace function unless you have a backup of your content.', 
                 'blocksrtool' ),
-            array ( $this, 'render_replace_section' ),
+            '', //array ( $this, 'render_replace_section' ),
             'blocksrtool'
         );
         add_settings_field(
