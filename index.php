@@ -4,7 +4,7 @@
  * Plugin Name: Block Search Replace Tool
  * Plugin URI: https://ballarinconsulting.com/plugins
  * Description: Adds an admin page inside the tools menu option with the functionality to perform search & replace actions over blocks that may be found in the content of a site.
- * Version: 0.9.4
+ * Version: 0.5.0
  * Requires at least: 6.5
  * Requires PHP: 7
  * Author: David Ballarin Prunera
