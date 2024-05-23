@@ -1,15 +1,6 @@
-=== Block Search Replace Tool ===
-Contributors: dballari
-Tags: site-editor, patterns, navigation, wp-admin, creator
-Requires at least: 6.5
-Stable tag: 0.5.0
-Requires PHP: 7.0
-License: GPLv2
-License URI: https://www.gnu.org/licenses/gpl-2.0.html
+# Block Search Replace Tool
 
 Adds an admin page inside the tools menu option with the functionality to perform search & replace actions over blocks that may be found in the content of a site.
-
-== Description ==
 
 If you know block markup, this plugin may be very useful helpong you find the pices of content that have a certain markup on them.
 
@@ -23,7 +14,7 @@ The search replace tool has some helper buttons that let you perform quick searc
 
 ![Block style finder](assets/screenshot-2.png)
 
-== Changelog ==
+## Changelog
 
 = 0.5.0 =
 * Added README.md and LICENSE

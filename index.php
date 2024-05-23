@@ -9,8 +9,8 @@
  * Requires PHP: 7
  * Author: David Ballarin Prunera
  * Author URI: https://ballarinconsulting.com/
- * License: GNU General Public License v2
- * License URI: http://www.gnu.org/licenses/gpl-2.0.html
+ * License: GNU General Public License v3
+ * License URI: http://www.gnu.org/licenses/gpl-3.0.html
  * Text Domain: blocksrtool
  */
 
@@ -25,7 +25,7 @@ Block Search Replace Tool is distributed in the hope that it will
 be useful, but WITHOUT ANY WARRANTY; without even the implied
 warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 See the GNU General Public License for more details here: 
-http://www.gnu.org/licenses/gpl-2.0.html
+http://www.gnu.org/licenses/gpl-3.0.html
 */
 
 
@@ -47,10 +47,10 @@ if ( is_admin() ) {
     /**
      * Get plugin data
      */
-	if( ! function_exists('get_plugin_data') ){
-		require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-	}
-	$plugin_data = get_plugin_data( __FILE__ );
+    if( ! function_exists('get_plugin_data') ){
+        require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+    }
+    $plugin_data = get_plugin_data( __FILE__ );
     $plugin_uri = $plugin_data['PluginURI'];
     $version = $plugin_data['Version'];
 
