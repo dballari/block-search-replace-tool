@@ -8,7 +8,7 @@
  * Requires at least: 6.5
  * Requires PHP: 7
  * Author: David Ballarin Prunera
- * Author URI: https://ballarinconsulting.com/
+ * Author URI: https://profiles.wordpress.org/dballari/
  * License: GNU General Public License v3
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
  * Text Domain: blocksrtool

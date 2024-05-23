@@ -1,5 +1,6 @@
 === Block Search Replace Tool ===
 Contributors: dballari
+Donate link: https://pay.sumup.com/b2c/QFMKLYCT
 Tags: site-editor, patterns, navigation, wp-admin, creator
 Requires at least: 6.5
 Stable tag: 0.5.0
