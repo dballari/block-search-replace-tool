@@ -43,8 +43,8 @@ class BlockStyleVariationFinder {
     public function add_page() {
         add_submenu_page(
             'tools.php',
-            __( 'Block Style Variation Finder Tool', 'blocksrtool' ),
-            __( 'Block Style Finder', 'blocksrtool' ),
+            __( 'Block Style Variation Finder Tool', 'block-search-replace-tool' ),
+            __( 'Block Style Finder', 'block-search-replace-tool' ),
             'manage_options',
             'blocksvfinder',
             array( $this, 'render_page' )
@@ -84,8 +84,8 @@ class BlockStyleVariationFinder {
             if( !empty($block->styles) ) {
                 printf(
                     '<tr><td>%s</td><td>%s</td>',
-                    $block->name,
-                    $this->render_block_styles($block->styles)
+                    esc_html( $block->name ),
+                    esc_html( $this->render_block_styles($block->styles ) )
                 );
             }
         }
@@ -106,8 +106,8 @@ class BlockStyleVariationFinder {
         foreach( $this->registered_block_styles as $blockkey => $styles ) {
                 printf(
                     '<tr><td>%s</td><td>%s</td>',
-                    $blockkey,
-                    $this->render_block_style_variations( $styles )
+                    esc_html( $blockkey ),
+                    esc_html( $this->render_block_style_variations( $styles ) )
                 );
         }
         $this->render_table_footer();
@@ -125,7 +125,7 @@ class BlockStyleVariationFinder {
     function render_table_header( $type ) {
         printf(
             '<table><tr><th>Block name</th><th>%s registered styles</th></tr>',
-            $type
+            esc_html( $type )
         );
     }
 

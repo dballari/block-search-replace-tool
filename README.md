@@ -16,6 +16,9 @@ The search replace tool has some helper buttons that let you perform quick searc
 
 ## Changelog
 
+= 0.6.0 =
+* fixes after running plugin check
+
 = 0.5.0 =
 * Added README.md and LICENSE
 * Added screenshots

@@ -3,12 +3,13 @@ Contributors: dballari
 Donate link: https://pay.sumup.com/b2c/QFMKLYCT
 Tags: site-editor, patterns, navigation, wp-admin, creator
 Requires at least: 6.5
-Stable tag: 0.5.0
+Tested up to: 6.6
+Stable tag: 0.6.0
 Requires PHP: 7.0
 License: GPLv3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-Adds an admin page inside the tools menu option with the functionality to perform search & replace actions over blocks that may be found in the content of a site.
+Adds an admin page inside the tools menu with the functionality to perform search & replace actions over blocks that may be found in the site content.
 
 == Description ==
 
@@ -25,6 +26,9 @@ The search replace tool has some helper buttons that let you perform quick searc
 ![Block style finder](assets/screenshot-2.png)
 
 == Changelog ==
+
+= 0.6.0 =
+* fixes after running plugin check
 
 = 0.5.0 =
 * Added README.md and LICENSE

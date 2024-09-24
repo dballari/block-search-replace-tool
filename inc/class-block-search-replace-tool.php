@@ -46,10 +46,10 @@ class BlockSearchReplaceTool {
     public function add_page() {
         add_submenu_page(
             'tools.php',
-            __( 'Block Search Replace Tool', 'blocksrtool' ),
-            __( 'Block Search Replace', 'blocksrtool' ),
+            __( 'Block Search Replace Tool', 'block-search-replace-tool' ),
+            __( 'Block Search Replace', 'block-search-replace-tool' ),
             'manage_options',
-            'blocksrtool',
+            'block-search-replace-tool',
             array( $this, 'render_page' )
         );
     }
@@ -73,12 +73,12 @@ class BlockSearchReplaceTool {
         <div class="wrap blocksrtool">
             <h1><?php echo esc_html( get_admin_page_title() ); ?></h1>
             <form id="blocksrtool_form" method="post" action="options.php">
-                <?php settings_fields( 'blocksrtool' ); ?>
+                <?php settings_fields( 'block-search-replace-tool' ); ?>
                 <input id="action" type="hidden" name="blocksrtool_options[action]" value="">
                 <div class="content-wrap">
                     <div class="content-item">
                         <div class="form-wrap">
-                            <?php do_settings_sections( 'blocksrtool' ); ?>
+                            <?php do_settings_sections( 'block-search-replace-tool' ); ?>
                         </div>
                     </div>
                     <div class="content-item results">
@@ -96,7 +96,7 @@ class BlockSearchReplaceTool {
     public function settings_init() {
 
         register_setting( 
-            'blocksrtool', 
+            'block-search-replace-tool', 
             $this->options_name,
             array( $this, 'sanitize' )
         );
@@ -104,13 +104,13 @@ class BlockSearchReplaceTool {
             'search',
             '',
             '', //array ( $this, 'render_search_section' ),
-            'blocksrtool'
+            'block-search-replace-tool'
         );
         add_settings_field(
             'search_text',
-            __( 'Piece of content to search', 'blocksrtool' ),
+            __( 'Piece of content to search', 'block-search-replace-tool' ),
             array( $this, 'render_search_field' ),
-            'blocksrtool',
+            'block-search-replace-tool',
             'search',
             array(
                 'label_for' => 'search_text',
@@ -121,15 +121,15 @@ class BlockSearchReplaceTool {
         add_settings_section(
             'replace',
             __( 'WARNING: Do not use the replace function unless you have a backup of your content.', 
-                'blocksrtool' ),
+                'block-search-replace-tool' ),
             '', //array ( $this, 'render_replace_section' ),
-            'blocksrtool'
+            'block-search-replace-tool'
         );
         add_settings_field(
             'replace_text',
-            __( 'Piece of content to replace', 'blocksrtool' ),
+            __( 'Piece of content to replace', 'block-search-replace-tool' ),
             array( $this, 'render_replace_field' ),
-            'blocksrtool',
+            'block-search-replace-tool',
             'replace',
             array(
                 'label_for' => 'replace_text',
@@ -175,11 +175,11 @@ class BlockSearchReplaceTool {
                 $results = $this->search_query( $this->options['search_text'] );
                 if ( count( $results ) > 0 ) {
                     ?>
-                    <h4><?php _e( 'Search results', 'blocksrtool' ); ?></h4>
+                    <h4><?php esc_html_e( 'Search results', 'block-search-replace-tool' ); ?></h4>
                     <?php
                     $this->render_results_table( $results );
                 } else {
-                    printf( __( 'No search results', 'blocksrtool' ) );
+                    printf( esc_html__( 'No search results', 'block-search-replace-tool' ) );
                 }
             }
         } elseif (isset( $options['action'] ) && $options['action'] == 'Replace' ) {
@@ -189,11 +189,11 @@ class BlockSearchReplaceTool {
                     $replaced = $this->search_query( $options['replace_text'] );
                     if ( count( $replaced ) > 0 ) {
                         ?>
-                        <h4><?php _e( 'Replacement results', 'blocksrtool' ); ?></h4>
+                        <h4><?php esc_html_e( 'Replacement results', 'block-search-replace-tool' ); ?></h4>
                         <?php
                         $this->render_results_table( $replaced );
                     } else {
-                        printf( __( 'No replace results', 'blocksrtool' ) );
+                        printf( esc_html__( 'No replace results', 'block-search-replace-tool' ) );
                     }
                 }
             }
@@ -202,13 +202,13 @@ class BlockSearchReplaceTool {
 
     public function render_search_section( $args ) {
         ?>
-        <h4><?php echo __( 'Search parameters', 'blocksrtool' ); ?></h4>
+        <h4><?php esc_html_e( 'Search parameters', 'block-search-replace-tool' ); ?></h4>
         <?php
     }
 
     public function render_replace_section( $args ) {
         ?>
-        <h4><?php echo __( 'Replace parameters', 'blocksrtool' ); ?></h4>
+        <h4><?php esc_html_e( 'Replace parameters', 'block-search-replace-tool' ); ?></h4>
         <?php
     }
 
@@ -223,19 +223,23 @@ class BlockSearchReplaceTool {
             type="text" 
             class="<?php echo esc_attr( $args['class'] ); ?>" 
             id="<?php echo esc_attr( $args['label_for'] ); ?>" 
-            name="<?php echo $this->options_name; ?>[<?php echo esc_attr( $args['label_for'] ); ?>]" 
-            value="<?php echo htmlentities($this->options['search_text']); ?>">
-        <h4><?php _e( 'Block settings helper buttons:', 'blocksrtool' ); ?></h5>
+            name="<?php echo esc_html( $this->options_name ); ?>[<?php echo esc_html( esc_attr( $args['label_for'] ) ); ?>]" 
+            value="<?php echo esc_html( htmlentities( $this->options['search_text'] ) ); ?>">
+        <h4><?php esc_html_e( 'Block settings helper buttons:', 'block-search-replace-tool' ); ?></h5>
         <div class="helper-buttons" style="margin-top: 16px;">
             <?php
-                $this->do_button( __( 'spacings', 'blocksrtool' ), 'spacings' );
-                $this->do_button( __( 'spacers', 'blocksrtool' ), 'spacers' );
-                $this->do_button( __( 'fontSizes', 'blocksrtool' ), 'fontsizes' );
-                $this->do_button( __( 'colors', 'blocksrtool' ), 'colors' );
+                $this->do_button( __( 'spacings', 'block-search-replace-tool' ), 'spacings' );
+                $this->do_button( __( 'spacers', 'block-search-replace-tool' ), 'spacers' );
+                $this->do_button( __( 'fontSizes', 'block-search-replace-tool' ), 'fontsizes' );
+                $this->do_button( __( 'colors', 'block-search-replace-tool' ), 'colors' );
             ?>
         </div>
-        <h4><?php _e( 'Block style variation helper buttons:', 'blocksrtool' ); ?> 
-            <span class="normal-weight">(see the <a href="<?php echo admin_url( 'tools.php?page=blocksvfinder' ); ?>">Block Style Finder</a> page)</span></h4>
+        <h4><?php esc_html_e( 'Block style variation helper buttons:', 'block-search-replace-tool' ); ?>
+            <span class="normal-weight">(<?php printf(
+	            /* translators: 1: bloc style variation finder admin page url */
+	            esc_html__( 'see the <a href="%1$s">Block style finder</a> page', 'sahmi' ),
+                esc_html(admin_url( 'tools.php?page=blocksvfinder' ))
+            );?>)</span></h4>
         <div class="helper-buttons" style="margin-top: 16px;">
             <?php
                 foreach( $this->styles as $style ) {
@@ -244,7 +248,7 @@ class BlockSearchReplaceTool {
             ?>
         </div>
         <?php 
-        $this->do_submit_button( 'search', 'primary', __( 'Search', 'blocksrtool' ) );
+        $this->do_submit_button( 'search', 'primary', __( 'Search', 'block-search-replace-tool' ) );
     }
 
     public function render_replace_field( $args ) {
@@ -254,10 +258,10 @@ class BlockSearchReplaceTool {
             type="text" 
             class="<?php echo esc_attr( $args['class'] ); ?>" 
             id="<?php echo esc_attr( $args['label_for'] ); ?>" 
-            name="<?php echo $this->options_name; ?>[<?php echo esc_attr( $args['label_for'] ); ?>]" 
-            value="<?php echo htmlentities( $this->options['replace_text']); ?>">
+            name="<?php echo esc_html( $this->options_name ); ?>[<?php echo esc_attr( $args['label_for'] ); ?>]" 
+            value="<?php echo esc_html( htmlentities( $this->options['replace_text'] ) ); ?>">
         <?php
-        $this->do_submit_button( 'search', 'secondary', __( 'Replace', 'blocksrtool' ) );
+        $this->do_submit_button( 'search', 'secondary', __( 'Replace', 'block-search-replace-tool' ) );
     }
 
     public function render_results_table( $results ) {
@@ -267,9 +271,11 @@ class BlockSearchReplaceTool {
         foreach($results as $result) {
             printf(
                 '<tr><td>%s</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td></tr>',
-                $result->ID, $result->post_type, $result->post_name, 
-                '<a href="'.get_edit_post_link($result->ID).'">'.$result->post_title.'</a>',
-                '<a target="_blank" href="'.get_permalink($result->ID).'">'.$result->post_title.'</a>',
+                esc_html( $result->ID ), 
+                esc_html( $result->post_type ), 
+                esc_html( $result->post_name ), 
+                '<a href="'.esc_html( get_edit_post_link($result->ID) ) . '">' . esc_html( $result->post_title ) . '</a>',
+                '<a target="_blank" href="'.esc_html( get_permalink($result->ID) ) . '">'.esc_html( $result->post_title ) . '</a>',
             );
         }
         printf(
@@ -308,7 +314,11 @@ class BlockSearchReplaceTool {
     public function do_submit_button($name, $type, $value) {
         printf(
             '<p class="submit"><input onclick="setAction(\'%s\' )" id="%s" class="button button-%s" type="submit" name="%s" value="%s"></p>',
-            $value, $name, $type, $name, $value
+            esc_html( $value ),
+            esc_html( $name ),
+            esc_html( $type ),
+            esc_html( $name ),
+            esc_html( $value )
         );
     }
 
@@ -334,35 +344,35 @@ class BlockSearchReplaceTool {
         }
         printf(
             '<button type="button" onclick="setSearch(\'%s\' )">%s</button>',
-            $search_text,
-            $name
+            esc_html( $search_text ),
+            esc_html( $name )
         );
     }
 
     public function add_message( $message_code ) {
         switch ($message_code) {
             case 'search_ok':
-                $message = __( 'Search done', 'blocksrtool' );
+                $message = __( 'Search done', 'block-search-replace-tool' );
                 $message_type = 'update';
                 break;
             case 'replace_ok':
-                $message = __( 'Replacement done', 'blocksrtool' );
+                $message = __( 'Replacement done', 'block-search-replace-tool' );
                 $message_type = 'update';
                 break;
             case 'no_search_string':
-                $message = __( 'No search string has been provided', 'blocksrtool' );
+                $message = __( 'No search string has been provided', 'block-search-replace-tool' );
                 $message_type = 'error';
                 break;
             case 'no_replace_string';
-                $message = __( 'No replace string has been provided', 'blocksrtool' );
+                $message = __( 'No replace string has been provided', 'block-search-replace-tool' );
                 $message_type = 'error';
                 break;
             case 'equal_search_replace_strings':
-                $message = __( 'Replace string must be different from search string', 'blocksrtool' );
+                $message = __( 'Replace string must be different from search string', 'block-search-replace-tool' );
                 $message_type = 'error';
                 break;
             default:
-                $message = __( 'Unknown error', 'blocksrtool' );
+                $message = __( 'Unknown error', 'block-search-replace-tool' );
                 $message_type = 'error';
         }
         add_settings_error( 

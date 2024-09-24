@@ -4,14 +4,14 @@
  * Plugin Name: Block Search Replace Tool
  * Plugin URI: https://ballarinconsulting.com/plugins
  * Description: Adds an admin page inside the tools menu option with the functionality to perform search & replace actions over blocks that may be found in the content of a site.
- * Version: 0.5.0
+ * Version: 0.6.0
  * Requires at least: 6.5
  * Requires PHP: 7
  * Author: David Ballarin Prunera
  * Author URI: https://profiles.wordpress.org/dballari/
  * License: GNU General Public License v3
  * License URI: http://www.gnu.org/licenses/gpl-3.0.html
- * Text Domain: blocksrtool
+ * Text Domain: block-search-replace-tool
  */
 
 
@@ -62,13 +62,13 @@ if ( is_admin() ) {
      * @param string $hook Hook suffix for the current admin page.
      */
     add_action( 'admin_enqueue_scripts', function( $hook ) use ( $version ) {
-        if ( $hook == 'tools_page_blocksrtool' || $hook == 'tools_page_blocksvfinder') {
+        if ( $hook == 'tools_page_block-search-replace-tool' || $hook == 'tools_page_blocksvfinder') {
             wp_enqueue_style( 'blocksrtool_style', plugin_dir_url( __FILE__ ) . 
-            'assets/css/style.css', $version );
+            'assets/css/style.css', [], $version );
         }
-        if ( $hook == 'tools_page_blocksrtool' ) {
+        if ( $hook == 'tools_page_block-search-replace-tool' ) {
             wp_enqueue_script( 'blocksrtool_scripts', plugin_dir_url( __FILE__ ) . 
-            'assets/js/scripts.js', [], $version );
+            'assets/js/scripts.js', [], $version, true );
         }
     });
 
